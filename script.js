@@ -56,8 +56,6 @@ class arrPop extends Popper {}
 const newArrayToPop = new arrPop(arr);
 
 function arrayPopper() {
-  // have truthy be 0 (falsey) to signify that it needs to take from the front, then have it be 1 (truthy) to signify it needs to take from the back
-
   newArrayToPop.arrayInClassPopper();
 }
 
