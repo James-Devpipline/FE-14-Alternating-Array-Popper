@@ -11,7 +11,35 @@ arrayPopper() => 3
 arrayPopper() => undefined
 */
 
-function arrayPopper(arrayInput) {
-  count = 0;
-  // have count be 0 (falsey) to signify that it needs to take from the front, then have it be 1 (truthy) to signify it needs to take from the back
+let truthy = 0;
+const arr = [1, 2, 3, 4, 5];
+
+class Popper {
+  constructor(arrayFunc) {
+    this.arrayFunc = arrayFunc;
+  }
+
+  arrayInClassPopper(arrayInput) {
+    if (truthy) {
+      let removed = arrayInput.pop();
+      alert(removed);
+      return truthy++;
+    } else {
+      let removed = arrayInput.shift();
+      alert(removed);
+      return truthy--;
+    }
+  }
 }
+
+class ArrPop extends Popper {}
+
+const arrayToPop = new ArrPop("test array");
+
+function arrayPopper(arrayInput) {
+  // have truthy be 0 (falsey) to signify that it needs to take from the front, then have it be 1 (truthy) to signify it needs to take from the back
+
+  ArrPop.arrayInClassPopper(arrayInput);
+}
+const arrrrrrrrg = new Popper(arr);
+arrayPopper(arrrrrrrrg);
