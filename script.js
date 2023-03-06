@@ -12,34 +12,53 @@ arrayPopper() => undefined
 */
 
 let truthy = 0;
-const arr = [1, 2, 3, 4, 5];
 
 class Popper {
-  constructor(arrayFunc) {
-    this.arrayFunc = arrayFunc;
+  constructor(arrayToPop) {
+    this.arrayToPop = arrayToPop;
   }
 
-  arrayInClassPopper(arrayInput) {
-    if (truthy) {
-      let removed = arrayInput.pop();
-      alert(removed);
-      return truthy++;
-    } else {
-      let removed = arrayInput.shift();
-      alert(removed);
-      return truthy--;
+  arrayInClassPopper() {
+    let popperInAction = true;
+    alert(`Working Array: [${this.arrayToPop}]`);
+    while (popperInAction) {
+      if (truthy) {
+        let removed = this.arrayToPop.pop();
+        if (removed === undefined) {
+          popperInAction = false;
+        } else {
+          alert(`Removed element: ${removed}`);
+          alert(`Remaining array: [${this.arrayToPop}] \nClick OK to continue`);
+          truthy--;
+        }
+      } else {
+        let removed = this.arrayToPop.shift();
+        if (removed === undefined) {
+          popperInAction = false;
+        } else {
+          alert(`Removed element: ${removed}`);
+          alert(`Remaining array: [${this.arrayToPop}] \nClick OK to continue`);
+          truthy++;
+        }
+      }
     }
+
+    return alert(
+      `There are no further elements in the array to remove.\nClick OK to end program`
+    );
   }
 }
 
-class ArrPop extends Popper {}
+const arr = [1, 2, 3, 4, 5];
 
-const arrayToPop = new ArrPop("test array");
+class arrPop extends Popper {}
 
-function arrayPopper(arrayInput) {
+const newArrayToPop = new arrPop(arr);
+
+function arrayPopper() {
   // have truthy be 0 (falsey) to signify that it needs to take from the front, then have it be 1 (truthy) to signify it needs to take from the back
 
-  ArrPop.arrayInClassPopper(arrayInput);
+  newArrayToPop.arrayInClassPopper();
 }
-const arrrrrrrrg = new Popper(arr);
-arrayPopper(arrrrrrrrg);
+
+arrayPopper();
